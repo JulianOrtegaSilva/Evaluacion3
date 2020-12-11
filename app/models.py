@@ -17,3 +17,17 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Registro(models.Model):
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    rut = models.TextField()
+    fecha_nacimiento = models.DateField()
+    telefono= models.TextField()
+    correo_electronico= models.EmailField()
+    contrasena= models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.rut
+
+    

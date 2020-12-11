@@ -37,9 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
+
     'app',
     'django.contrib.humanize',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK= 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +67,7 @@ ROOT_URLCONF = 'Evaluacion2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['./templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +79,16 @@ TEMPLATES = [
         },
     },
 ]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    # Necesario para logear por username en Django admin, sin importar allauth
+    'django.contrib.auth.backends.ModelBackend',
+    
+    # Metodo de autenticación especifico de allauth, como logear por email
+   'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 WSGI_APPLICATION = 'Evaluacion2.wsgi.application'
 
@@ -121,6 +142,47 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 import os
-
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': ['email', 'public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time',
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.12',
+    },
+
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1450142098653726'
+SOCIAL_AUTH_FACEBOOK_SECRET = '77230af77e7df576c05ca1c83cfbe8fa'

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
     <link rel="stylesheet" href="https://use.typekit.net/hda2scl.css">
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-	<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 
 <!--BARRA MENU -->
 
@@ -35,15 +35,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated  %}
+                
+                {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'ingreso' %}"> Ingreso </a>
+                </li>
+                {%endif%}
+                {% if user.is_authenticated  %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logout' %}"> LogOut </a>
+                </li>
+                {%endif%}
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home' %}"> Inicio </a>
                 </li>
+                {% if request.user.is_staff %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'menu' %}">Hardware</a>
+                    <a class="nav-link" href="{% url 'listar_producto' %}">Lista</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'registro' %}">Registro</a>
                 </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'menu' %}">Hardware</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
