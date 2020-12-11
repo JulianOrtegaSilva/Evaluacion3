@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link rel="stylesheet" href="https://use.typekit.net/hda2scl.css">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+
+<!--BARRA MENU -->
+
+    <title>Computadores OP</title>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="home.html">
+            <img src="{% static 'app/img/LOGOPC.jpg' %}" style="width:150px; height:134px ;">
+        </a>
+        <div><h1>Computadores OP</h1>  </div>
+        <div class="collapse navbar-collapse " id="navright" href="home.html">
+            <a class="nav-link" href="home.html">
+                <ion-icon name="ordenador"></ion-icon>
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated  %}
+                
+                {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'ingreso' %}"> Ingreso </a>
+                </li>
+                {%endif%}
+                {% if user.is_authenticated  %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logout' %}"> LogOut </a>
+                </li>
+                {%endif%}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}"> Inicio </a>
+                </li>
+                {% if request.user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'listar_producto' %}">Lista</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'registro' %}">Registro</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'menu' %}">Hardware</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</head>
+
+<body>
+
+<div id="contenido">
+
+    {% block contenido %}
+    {% endblock %}
+
+</div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+<!-- FOOTER -->
+    <footer id="footer" class="footer-1 py-2 ">
+        <div class="main-footer widgets-dark typo-dark">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget subscribe no-box">
+                            <h5 class="widget-title">Computadores OP S.A<span></span></h5>
+                            <p> Computadores OP S.A. Oficinas de recursos humanos ubicada en av.Americo Vespucio Norte 500, Las condes. nos encargamos de entregar el mejor servicio desde el año 2019  </p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Enlaces<span></span></h5>
+                            <ul class="thumbnail-widget">
+                                <li>
+                                    <div class="thumb-content"><a href="home.html">Inicio</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="menu.html">Hardware</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="registro.html">Registrate</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Terminos y condiciones <span></span></h5>
+                            <a class="btn" href="#." target="_blank">Términos y condiciones</a>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Contactanos<span></span></h5>
+
+                            <p><a href="info@computadoresop.com" title="glorythemes">info@computadoresop.com</a></p>
+                            <ul class="social-footer2">
+                                <li class="ytube"><a title="youtube" target="_blank" href="https://www.youtube.com/">
+                                        <ion-icon name="logo-youtube"></ion-icon>
+                                </li>
+                                <li class="fbk"><a href="https://www.facebook.com/" target="_blank" title="Facebook">
+                                        <ion-icon name="logo-facebook"></ion-icon>
+                                    </a>
+                                </li>
+                                <li class="twit"><a href="https://twitter.com" target="_blank" title="Twitter">
+                                        <ion-icon name="logo-twitter"></ion-icon>
+                                </li>
+                                <li class="insta"><a title="instagram" target="_blank" href="https://www.instagram.com/">
+                                        <ion-icon name="logo-instagram"></ion-icon>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center" href="#">
+                        <p href="#"> Para mas informacion acude a nuestra mesa central fono: (555) 800 500 5300 </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

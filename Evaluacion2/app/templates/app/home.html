@@ -1,0 +1,108 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<!-- SLIDER -->
+<center>
+    <div class="container centrar">
+    <div class="col-sm-10" >
+    
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active imgb">
+                        <img class="d-block w-100" src="{% static 'app/img/amdryzen.jpg' %}" alt="First slide" data-interval="5000"> 
+                        <div class="carousel-caption d-none d-md-block">
+                                <h3>ORDENADOR RYZEN 7GEN 3800XT 4.70GHZ 8 Core </h3>
+                                <p style="background-color: black;"> Promoción válida de lunes a jueves entre las 12:00pm y 18:00pm</p>
+                        </div>
+                    
+                      </div>
+                      <div class="carousel-item imgb">
+                        <img class="d-block w-100" src="{% static 'app/img/notebookHP.jpg' %}" alt="Second slide" data-interval="5000">
+                        <div class="carousel-caption d-none d-md-block">
+                                <h3>Notebook HP Intel Core i3 + 8GB RAM </h3>
+                                <p style="background-color: black;"> Promoción válida de lunes a jueves entre las 12:00pm y 18:00pm</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item imgb">
+                        <img class="d-block w-100" src="{% static 'app/img/macbook.jpg' %}" alt="Third slide" data-interval="5000">
+                        <div class="carousel-caption d-none d-md-block">
+                                <h3>Macbook Air 13,3" Intel i5 8GB RAM 128GB SSD </h3>
+                                <p style="background-color: black;"> Promoción válida de lunes a jueves entre las 12:00pm y 18:00pm</p>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+    
+    </div>
+    </div>
+    
+    <!-- contentenido pagina -->
+    <div class="container">
+    
+
+    
+      <!-- Marketing Icons Section -->
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header">Promocion PC Gamer AMD</h4>
+            <div class="card-body">
+                <img class="imgb" style="height:300px; width:300px" src="{% static 'app/img/PCgamer.jpg' %}" >
+                <p><b>Promoción PC gamer Gama alta </b></p>
+                <p><b>- Nvidia Geforce Rtx 2080 Amd R7 + 16 GB RAM</b></p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary"><b>$ 1.990.000</b></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header">Promoción PC Gamer intel</h4>
+            <div class="card-body">
+                    <img class="imgb" style="height:300px; width:300px" src="{% static 'app/img/PCgamerIntel.jpg' %}" >
+                    <p><b>Promoción PC Gamer Gama Media Alta </b></p>
+                    <p><b>- Intel Core I5 9400 Ram 8GB Disco 1TB Nvidia Gtx 1050 Ti 4Gb</b></p>
+              
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary"><b>$ 1.499.000</b></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header">NotebookGamer HP</h4>
+            <div class="card-body">
+                    <img class="imgb" style="height:300px; width:300px" src="{% static 'app/img/notebookgamer.jpg' %}" >
+                    <p><b>Promoción Notebook HP Gama Media Alta </b></p>
+                    <p><b>- Hp I7 8gb 256ssd Gtx1050 15,6</b></p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">$ 815.990</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+    
+    </div>
+    </div>
+</center>
+{% endblock %}

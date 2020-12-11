@@ -1,0 +1,64 @@
+h1{
+    font-family: cooper-black-std, serif;
+    color:#9ECA20;
+}
+h3{
+    font-family: cooper-black-std, serif;
+    background: black;    
+    
+}
+h4{
+    font-family: cooper-black-std, serif;
+    color:#9ECA20;
+}
+body{
+    background-image: url("https://www.softzone.es/app/uploads-softzone.es/2019/10/cambiar-fondo-reinicio.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.registro1{
+    background: black;
+    margin: 4px;
+    opacity: 0.85;
+
+}
+
+.footer-1{
+background: #202020;
+background-color: #202020;
+}
+
+.center {
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container{
+margin: 40px;
+}
+
+.imgb{
+border: 4px solid black; 
+}
+
+
+.w-100 {
+    width: 100% !important;
+    height: 75vh;
+}
+
+p
+{
+	color:#77BB00;
+}
+
+h5
+{
+	color:#FFFFFF;
+}
+
+.btn
+{
+	color:#FFFFFF;
+}

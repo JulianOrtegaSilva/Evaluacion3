@@ -1,0 +1,72 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+<div>
+    <h1> Registro </h1>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<!-- Eventos -->
+<script>
+function soloLetras(e) {
+  key = e.keyCode || e.which;
+  tecla = String.fromCharCode(key).toLowerCase();
+  letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+  especiales = [8, 37, 39, 46];
+
+  tecla_especial = false
+  for(var i in especiales) {
+      if(key == especiales[i]) {
+          tecla_especial = true;
+          break;
+      }
+  }
+
+  if(letras.indexOf(tecla) == -1 && !tecla_especial)
+      return false;
+}
+
+function soloNumeros(e)
+{
+var key = window.Event ? e.which : e.keyCode
+return ((key >= 48 && key <= 57) || (key==43))
+}
+
+</script>
+
+<!-- Contenido -->
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class=card-body>
+                <form action="" class="" method="post"> 
+                    {% csrf_token %}
+                    {{ form | crispy }}
+            
+                    <div>
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                        <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+                    </div>     
+                </form>
+                {{mensaje}}
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+{% endblock %}
